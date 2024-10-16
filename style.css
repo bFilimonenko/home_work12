@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("imgs/bg.jpg");
+    background-position: bottom;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+/*Sun*/
+.sun_container {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    left: 30%;
+}
+
+.sun_rays {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    animation-name: sunRays;
+    animation-duration: 7s;
+    animation-delay: -1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes sunRays {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.sun_special {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 100px;
+    left: 100px;
+}
+
+
+.sun {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    /*top: 100px;*/
+    /*left: 100px;*/
+}
+
+.sun_special:hover {
+    transform: scale(1.1);
+}
+
+.sun_face {
+    position: absolute;
+    width: 76px;
+    top: 7px;
+    left: 13px;
+}
+
+@keyframes kolobokEscaped {
+    from {
+        transform: translate(500px, -400px);
+    }
+
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+.kolobok {
+    animation: kolobokEscaped 3s linear ;
+    position: relative;
+    width: 100px;
+    /*height: 100px;*/
+    top: 350px;
+    left: 600px;
+}
+
+.kolobok img {
+    position: absolute;
+    width: 100px;
+}
+
+.kolobok .active {
+    animation-name: kolobokRotate;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-timing-function: linear;
+}
+
+@keyframes kolobokRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.action {
+    position: relative;
+    bottom: 0;
+    width: 100vw;
+    height: 500px;
+}
+
+/*Bush*/
+.bush_container {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    bottom: 30px;
+}
+
+.bush2 {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.bush {
+    position: absolute;
+    width: 90%;
+    bottom: 0;
+}
+
+/*Animals*/
+.animals {
+    position: absolute;
+    width: 220px;
+    height: 450px;
+    left: 400px;
+}
+
+.animals .current {
+    position: absolute;
+    opacity: 1;
+}
+
+.animals img {
+    position: absolute;
+    opacity: 0;
+    width: 200px;
+    bottom: 0;
+    left: 0;
+}
+
