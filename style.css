@@ -12,6 +12,7 @@ body {
     background-attachment: fixed;
 }
 
+/*Sky*/
 
 /*Sun*/
 .sun_container {
@@ -49,7 +50,6 @@ body {
     left: 100px;
 }
 
-
 .sun {
     position: absolute;
     width: 100px;
@@ -69,18 +69,82 @@ body {
     left: 13px;
 }
 
+/*Cloud*/
+
+.clouds {
+    position: relative;
+    width: 800px;
+    /*top: -200px;*/
+}
+
+div.clouds img {
+    position: absolute;
+    width: 20%;
+    transition: width 1s;
+}
+
+.cloud {
+    top: -150px;
+    animation: cloudAnim 6s linear 0s infinite alternate;
+}
+
+.cloud2 {
+    top: -200px;
+    animation: cloudAnim2 10s linear 0s infinite alternate;
+}
+
+.cloud3 {
+    top: -250px;
+    animation: cloudAnim3 7s linear 0s infinite alternate;
+}
+
+@keyframes cloudAnim {
+    from {
+        left: 150px;
+    }
+    to {
+        left: 1000px;
+    }
+}
+
+@keyframes cloudAnim2 {
+    from {
+        left: 750px;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes cloudAnim3 {
+    from {
+        left: 0;
+    }
+    to {
+        left: 900px;
+    }
+}
+
+
+div.clouds img:hover {
+    width: 25%;
+    animation-play-state: paused;
+}
+
+
+/*Land*/
+
 @keyframes kolobokEscaped {
     from {
         transform: translate(500px, -400px);
     }
-
     to {
         transform: translate(0, 0);
     }
 }
 
 .kolobok {
-    animation: kolobokEscaped 3s linear ;
+    animation: kolobokEscaped 3s linear;
     position: relative;
     width: 100px;
     /*height: 100px;*/
@@ -90,7 +154,7 @@ body {
 
 .kolobok img {
     position: absolute;
-    width: 100px;
+    width: 85px;
 }
 
 .kolobok .active {
@@ -124,6 +188,50 @@ body {
     bottom: 30px;
 }
 
+@keyframes bushShake {
+    from,
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+@keyframes bushShake2 {
+    from,
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translate3d(10px, 0, 0);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translate3d(-10px, 0, 0);
+    }
+}
+
 .bush2 {
     position: absolute;
     width: 100%;
@@ -136,6 +244,14 @@ body {
     bottom: 0;
 }
 
+img.bush2.active {
+    animation: bushShake2 1.5s linear 0s 1;
+}
+
+img.bush.active {
+    animation: bushShake 1.5s linear 0s 1;
+}
+
 /*Animals*/
 .animals {
     position: absolute;
@@ -144,12 +260,27 @@ body {
     left: 400px;
 }
 
+.animal_container {
+    position: absolute;
+    width: 220px;
+    height: 450px;
+}
+
+@keyframes animalGo {
+    from {
+        transform: matrix(0.5, 0, 0, 0.5, -200, 0);
+    }
+    to {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+    }
+}
+
 .animals .current {
     position: absolute;
     opacity: 1;
 }
 
-.animals img {
+.animal {
     position: absolute;
     opacity: 0;
     width: 200px;
@@ -157,3 +288,91 @@ body {
     left: 0;
 }
 
+.animal.animated {
+    animation: animalGo 2s linear;
+}
+
+.hare {
+    width: 170px;
+}
+
+.wolf {
+    width: 220px;
+}
+
+.bear {
+    width: 260px;
+    left: -25px;
+}
+
+.fox {
+
+}
+
+
+.text {
+    display: none;
+}
+
+.text.active {
+    position: absolute;
+    display: block;
+    width: 200px;
+    top: 50px;
+}
+
+/*Tree*/
+.tree {
+    position: relative;
+    width: 200px;
+}
+
+.tree img {
+    position: absolute;
+    width: 400px;
+    top: -75px;
+    left: 800px;
+}
+
+.eye {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    top: 115px;
+    left: 950px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.eye1,
+.eye2 {
+    width: 30px;
+    height: 30px;
+    clip-path: circle(50% at 50% 50%);
+    background: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    animation: blink 7s linear infinite;
+}
+
+.iris {
+    width: 13px;
+    height: 15px;
+    border-radius: 50%;
+    background: #000;
+}
+
+@keyframes blink {
+    0%,
+    100% {
+        transform: skewY(-20deg);
+    }
+
+    50%,
+    90% {
+        transform: skewY(10deg);
+    }
+}
